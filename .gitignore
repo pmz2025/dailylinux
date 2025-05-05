@@ -1,3 +1,4 @@
 kubectl
 [B/b]in/
 *.token
+*.sha256
