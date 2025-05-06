@@ -8,16 +8,18 @@ What I learnt today and how and where i can use it?
 
 ### Displaying detailed information about a single account
 
+```bash
 lslogins $(whoami)
 
 lslogins --login=0,500
-
+```
 #### Using --output for custom display
 
+```bash
 lslogins --login=0,1000 --output=UID,USER,GECOS
+```
 
 #### Display password expiry and supplementary
-
 
 ```bash
 ⇒  lslogins -a -u -G
@@ -37,7 +39,7 @@ lslogins --login=0,1000 --output=UID,USER,GECOS
 
 ### Get rid of double quotes
 
-sometimes we take output from the command in variable but it comes as text with quote as shown below
+Sometimes we take output from the command in variable but it comes as text with quote as shown below
 ```bash
 oc image info registry.redhat.io/rhel9/httpd-24:9.5-1740962963 --filter-by-os linux/amd64 -o json | jq .digest
 "sha256:f97c915312cdaa8f4000d409e71ead6e4aaeaed587563560e44e93532273e063"
