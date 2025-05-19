@@ -24,6 +24,9 @@ curl -LO https://dl.k8s.io/release/$LATESTKUBECTL/bin/linux/amd64/kubectl
 
 echo $(cat kubectl.sha256) kubectl | sha256sum --check
 
+# Inside you are wondering why i have not given path to kubectl executable, because
+# sha256sum --check checks for file inside the current folder
+
 ```
 
 Lesson learnt, use `--check` option
