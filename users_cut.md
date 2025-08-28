@@ -8,7 +8,7 @@ cut -d: -f1 /etc/passwd
 
 ## Lets find the user and its shell
 
-cut -d: -f1,7 /etc/passwd
+`cut -d: -f1,7 /etc/passwd`
 
 ## Services which start at boot
 
@@ -20,4 +20,5 @@ use the bash file cronjobusers.sh
 ## List global tasks
 
 sudo systemclt list-timers
+
 sudo ls -l /etc/cron*
