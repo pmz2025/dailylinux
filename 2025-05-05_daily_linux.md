@@ -10,16 +10,16 @@ curl -OLv http://
 
 Lets use this in practice. We need to find the latest (stable) version of kubectl and use this information to find sha256 sum
 
-set LATESTKUBECTL $(curl -sL https://dl.k8s.io/release/stable.txt)
+NB: Here I'm using fish shell
 
-
+`set LATESTKUBECTL $(curl -sL https://dl.k8s.io/release/stable.txt)`
 
 ### Download exec and check sum using --check
 
 ```bash
-
+# download sha256
 curl -LO https://dl.k8s.io/release/$LATESTKUBECTL/bin/linux/amd64/kubectl.sha256
-
+# download exec
 curl -LO https://dl.k8s.io/release/$LATESTKUBECTL/bin/linux/amd64/kubectl
 
 echo $(cat kubectl.sha256) kubectl | sha256sum --check
@@ -29,18 +29,22 @@ echo $(cat kubectl.sha256) kubectl | sha256sum --check
 
 ```
 
-Lesson learnt, use `--check` option
+> Lesson learnt, use `--check` option
 
 ### Repo variables
 
 YUM/DNF has some pre-defined variables which are seen been used in .repo files
 
-$arch
-$basearch
-$releasever
+- $arch
+- $basearch
+- $releasever
 
 
-# In this '' s means search, and search for .0 and replace with nothing or delete and the $ matches any character present at the end of the string.
+In this below command `s` means search, and search for .0 
+
+and replace with nothing or delete and the $ matches 
+
+any character present at the end of the string.
 
 ```bash
 set REPOKUBEVER $(echo $LATESTKUBECTL | sed 's/.0$//')
